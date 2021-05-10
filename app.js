@@ -30,24 +30,31 @@
 
 // formatNumber should return the number formatted as a readable string, inserting a comma (",") as a thousands separator. If the number n is an integer, add .0 to the formatted string, otherwise, print the decimals as they are.
 
-// Example:
-
 function formatNumber(n) {
-  console.log(n.toString().length);
-
-  let string = n.toString().split('');
-
-  string.forEach((element) => {
-    console.log(element);
-  });
   if (Number.isInteger(n)) {
-    return n + '.0';
+    n += '.0';
   }
+  let newstring = n.toString();
+  let splitByDot = newstring.split('.');
+  let leftNumber = splitByDot[0];
+
+  let leftNumberarr = leftNumber.split('');
+  let count = 0;
+
+  for (let i = leftNumber.length; i > 0; --i) {
+    count++;
+    if (count % 3 === 0) {
+      leftNumberarr.splice(leftNumber.length - count, 0, ',');
+      console.log(count);
+    }
+  }
+
+  return leftNumberarr.join('') + '.' + splitByDot[1];
 }
-var int = 10;
 
-console.log(formatNumber(2)); //Expected "2.0" PASSED
-console.log(formatNumber(1130.34));
-formatNumber(1000.23); //Expected "1,000.23"
+// console.log(formatNumber(2)); //Expected "2.0" PASSED
+// console.log(formatNumber(2123123.34));
+console.log(formatNumber(5000000000)); //Expected "1,000.23"
 
-formatNumber(23082342.3285); //Expected 23,082,342.3285
+//formatNumber(23082342.3285); //Expected 23,082,342.3285
+// play with arrays
