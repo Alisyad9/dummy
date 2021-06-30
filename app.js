@@ -48,7 +48,6 @@ function formatNumber(n) {
       console.log(count);
     }
   }
-
   return leftNumberarr.join('') + '.' + splitByDot[1];
 }
 
@@ -58,3 +57,52 @@ console.log(formatNumber(5000000000)); //Expected "1,000.23"
 
 //formatNumber(23082342.3285); //Expected 23,082,342.3285
 // play with arrays
+
+// function shout(words) {
+//   console.log(words);
+//   let result = [];
+
+//   for (let i = 0; i < words.length; i++) {
+//     console.log(i);
+//     word = words[i];
+//     let uppercasseWord = word.toUpperCase();
+//     result.push(uppercasseWord);
+//   }
+
+//   return result;
+// }
+// function shout2(words) {
+//   let result = [];
+//   for (let word of words) {
+//     console.log(result.push(word));
+//   }
+// }
+
+function shout3(words) {
+  result = [];
+  words.forEach((element) => {
+    let uppercase = element.toUpperCase();
+    result.push(uppercase);
+  });
+  return result;
+}
+
+function shout4(words) {
+  // let result = [];
+  return words.map((word) => {
+    let uppercase = word.toUpperCase();
+    // result.push(uppercase);
+    // console.log(result);
+    console.log(uppercase);
+    return uppercase;
+  });
+}
+
+shout4(['hello', 'world']);
+
+function divisible2(number) {
+  return number.filter((numb) => {
+    return numb % 3 === 0;
+  });
+}
+console.log(divisible2([1, 2, 3, 4, 5, 6, 9]));
